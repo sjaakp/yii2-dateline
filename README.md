@@ -1,9 +1,9 @@
-YII2 Dateline
+Yii2 Dateline
 =============
 
-#### Widget integrating my Dateline in Yii 2.0 PHP Framework. ####
+#### Widget for date-related data in Yii 2.0 PHP Framework. ####
 
-Dateline widget renders my Javascript Dateline. The Event data for the dateline are provided by a Yii DataProvider (any object implementing [yii\data\DataProviderInterface](http://www.yiiframework.com/doc-2.0/yii-data-dataproviderinterface.html)).
+Dateline widget renders my Javascript jQuery Dateline. The Event data for the dateline are provided by a Yii DataProvider (any object implementing [yii\data\DataProviderInterface](http://www.yiiframework.com/doc-2.0/yii-data-dataproviderinterface.html)).
 
 A demonstration of Dateline widget is [here](http://www.sjaakpriester.nl/software/dateline).
 
@@ -67,7 +67,7 @@ A Band is defined by the Dateline method `band()`.
 
 ## Events ##
 
-**Dateline** displays Events: Models or ActiveRecords characterized by a moment in time.
+**Dateline** displays Events. These are Models or ActiveRecords characterized by a moment in time.
 
 The Dateline::attributes property holds the translation from Model attribute names to Dateline attribute names.
   
@@ -80,7 +80,7 @@ Events come in two types:
 
 #### Instant Events ####
 
-These are the basic Events, having just one point in time. **Dateline** displays them as little pin icons. Only the above attributes are required.
+These are the basic Events, having just one point in time. **Dateline** displays them as dot icons. Only the above attributes are required.
 
 #### Duration Events ####
 
@@ -102,6 +102,4 @@ Some of the other Event attributes are:
 **Dateline** understands a lot of date formats (in the options and in the Event data). Every date can be provided in one of the following formats:
 
 - a `string`, recognized by [Javascript Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date), that is in RFC2822 or ISO-8601 format; among them MySQL `date` and `datetime` fields
-- a PHP `DateTime` object
-- an `array`, recognized by Javascript Date: `[ year, month, day?, hour?, minute?, second?, millisecond? ]`. Notice: month is zero-based, so January == 0, May == 4
 - an `integer`: Unix time stamp (seconds since the Unix Epoch, 1-1-1970, return value of PHP `time()`)

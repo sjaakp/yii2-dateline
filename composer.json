@@ -1,0 +1,23 @@
+{
+    "name": "sjaakp/yii2-dateline",
+    "description": "Widget to handle dates",
+    "keywords": ["yii", "yii2", "extension", "widget", "date", "datetime", "timeline"],
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sjaak Priester",
+            "email": "sjaak@sjaakpriester.nl",
+            "homepage": "http://sjaakpriester.nl"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "bower-asset/dateline": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "sjaakp\\dateline\\": ""
+        }
+    }
+}
