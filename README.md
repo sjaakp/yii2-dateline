@@ -5,7 +5,7 @@ Yii2 Dateline
 
 Dateline widget renders my Javascript jQuery Dateline. The Event data for the dateline are provided by a Yii DataProvider (any object implementing [yii\data\DataProviderInterface](http://www.yiiframework.com/doc-2.0/yii-data-dataproviderinterface.html)).
 
-A demonstration of Dateline widget is [here](http://www.sjaakpriester.nl/software/dateline).
+A demonstration of Dateline widget is [here](http://www.sjaakpriester.nl/software/dateline2).
 
 ## Installation ##
 
@@ -49,7 +49,7 @@ A Band is defined by the Dateline method `band()`.
 `$options` is an array with the following keys:
 
 - **size**: the part of Dateline occupied by this band, as a percentage or another CSS3 dimension,
-- **layout**: the only sensible value is 'overview'; all other values (including none) default to 'compact', which is the layout of the main band
+- **layout**: the only sensible value is `'overview'`; all other values (including none) default to `'normal'`, which is the layout of the main band
 - **scale**: the time unit that divides the horizontal scale of the Band. The value should be one of the following unit constants (yes, Dateline has an astonishing range!):
 	- `Dateline::MILLISECOND`
 	- `Dateline::SECOND`
@@ -90,12 +90,15 @@ These have a certain duration. **Dateline** displays them as a piece of blue 'ta
    
 Duration Events also have some optional attributes, making the Event *Imprecise*:
 
+- **post_start**: *optional*. Indicates a degree of uncertainty in `start`.
+
+- **pre_stop**: *optional*. Indicates a degree of uncertainty in `stop`.
 
 The imprecise part of a Duration Event is displayed as faded tape.
 
-#### Optional Event attributes ####
+#### Optional Event attribute ####
 
-Some of the other Event attributes are:
+- **class**: sets the HTML class(es) of the event in normal layout. Can be used to iconize or colorize an event. For more information, see [https://github.com/sjaakp/dateline#iconizing-events](https://github.com/sjaakp/dateline#iconizing-events "jQuery.dateline")
 
 ## Dates ##
 
