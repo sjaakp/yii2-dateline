@@ -3,7 +3,7 @@ Yii2 Dateline
 
 #### Widget for date-related data in Yii 2.0 PHP Framework. ####
 
-Dateline widget renders my Javascript jQuery Dateline. The Event data for the dateline are provided by a Yii DataProvider (any object implementing [yii\data\DataProviderInterface](http://www.yiiframework.com/doc-2.0/yii-data-dataproviderinterface.html)).
+Dateline widget renders my [Javascript jQuery Dateline](https://github.com/sjaakp/dateline). The Event data for the dateline are provided by a Yii DataProvider (any object implementing [yii\data\DataProviderInterface](http://www.yiiframework.com/doc-2.0/yii-data-dataproviderinterface.html)).
 
 A demonstration of Dateline widget is [here](http://www.sjaakpriester.nl/software/dateline2).
 
@@ -19,26 +19,26 @@ Or run:
 
 You can manually install **Dateline** by [downloading the source in ZIP-format](https://github.com/sjaakp/yii2-dateline/archive/master.zip).
 
-## Using Timeline ##
+## Using Dateline ##
 
 
 #### options ####
 
 Dateline has the following options:
 
-- **dataProvider**: the DataProvider for Timeline. Must be set.
+- **dataProvider**: the DataProvider for Dateline. Must be set.
 - **attributes**: array with key => value pairs of {dateline attribute name} => {model attribute name}. This is used to 'translate' the model attribute names to Dateline attribute names. Required.
 - **height**: height of Dateline. Default: 200. Can have these values:
  - `integer` height in pixels
  - `string` valid CSS height (f.i. in ems)
- - `false` height is not set; caution: the height MUST be set by some other means (CSS), otherwise Timeline will not appear.
+ - `false` height is not set; caution: the height MUST be set by some other means (CSS), otherwise Dateline will not appear.
 
 
 - **htmlOptions** (optional): array of HTML options for the Dateline container. Use this if you want to explicitly set the ID. 
 
 ## Bands ##
 
-**Timeline** consists of one or more Bands. They each display the Events in a different time resolution.
+**Dateline** consists of one or more Bands. They each display the Events in a different time resolution.
 
 A Band is defined by the Dateline method `band()`.
 
