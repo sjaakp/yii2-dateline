@@ -13,7 +13,8 @@
     ],
     "require": {
         "yiisoft/yii2": "*",
-        "bower-asset/dateline": "*"
+        "bower-asset/dateline": "*",
+        "madand/yii2-underscore": "*"
     },
     "autoload": {
         "psr-4": {
