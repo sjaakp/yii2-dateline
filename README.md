@@ -28,12 +28,7 @@ Dateline has the following options:
 
 - **dataProvider**: the DataProvider for Dateline. Must be set.
 - **attributes**: array with key => value pairs of {dateline attribute name} => {model attribute name}. This is used to 'translate' the model attribute names to Dateline attribute names. Required.
-- **height**: height of Dateline. Default: 200. Can have these values:
- - `integer` height in pixels
- - `string` valid CSS height (f.i. in ems)
- - `false` height is not set; caution: the height MUST be set by some other means (CSS), otherwise Dateline will not appear.
-
-
+- **options**: array of options for the underlying Dateline jQuery widget. More information [here](https://github.com/sjaakp/dateline#cursor "GitHub").
 - **htmlOptions** (optional): array of HTML options for the Dateline container. Use this if you want to explicitly set the ID. 
 
 ## Bands ##

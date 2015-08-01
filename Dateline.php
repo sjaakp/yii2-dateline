@@ -1,8 +1,8 @@
 <?php
 /**
  * MIT licence
- * Version 1.0.0
- * Sjaak Priester, Amsterdam 05-07-2015.
+ * Version 1.0.1
+ * Sjaak Priester, Amsterdam 05-07-2015 ... 01-08-2015.
  *
  * Widget for date related data in Yii 2.0 framework
  */
@@ -43,29 +43,11 @@ class Dateline extends Widget {
     public $attributes;
 
     /**
-     * @var int | string | false
-     * Height of the dateline.
-     * - int        height in pixels
-     * - string     valid CSS height (f.i. in ems)
-     * - false      height is not set; caution: the height MUST be set by some other means (CSS), otherwise
-     *              the dateline will not appear.
+     * @var array
+     * Client options for the Dateline jQuery widget.
+     * @link https://github.com/sjaakp/dateline#cursor
      */
-    public $height = 200;
-
-    /**
-     * @var bool
-     * - false      clicking on an event in Compact layout opens a bubble window with information obtained by
-     *              a Java GET-call to $url
-     * - true       clicking redirects the browser to $url
-     */
-    public $redirect = false;
-
-    /**
-     * @var string
-     * URL of the click action on an Event in Compact layout. The URL is supplemented by '?id=<id>'
-     * If not set, there is no click action.
-     */
-    public $url;
+    public $options = [];
 
     /**
      * @var array
@@ -110,13 +92,10 @@ class Dateline extends Widget {
             return $v;
         }, $this->dataProvider->getModels());
 
-        $options = [
-            'size' => $this->height,
+        $options = array_merge ($this->options, [
             'bands' => $this->bands,
             'events' => $tData,
-            'redirect' => $this->redirect,
-            'url' => $this->url
-        ];
+        ]);
 
         $jOpts = Json::encode($options);
 
