@@ -17,15 +17,19 @@ class DatelineAsset extends AssetBundle {
         'madand\underscore\UnderscoreAsset',
     ];
 
-    public $sourcePath = '@bower/dateline/dist';
+    public $sourcePath = '@bower/dateline';
 
     public $css = [
-        'jquery.dateline.css'
+        'css/jquery.dateline.css'
+    ];
+
+    public $publishOptions = [
+        'only' => [ 'css/*.css', 'js/*' ]
     ];
 
     public function init()    {
         parent::init();
 
-        $this->js[] = YII_DEBUG ? 'jquery.dateline.js' : 'jquery.dateline.min.js';
+        $this->js[] = YII_DEBUG ? 'js/jquery.dateline.js' : 'js/jquery.dateline.min.js';
     }
 }

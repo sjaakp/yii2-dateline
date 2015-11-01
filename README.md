@@ -9,7 +9,7 @@ A demonstration of Dateline widget is [here](http://www.sjaakpriester.nl/softwar
 
 ## Installation ##
 
-The preferred way to install **Dateline** is through [Composer](https://getcomposer.org/). Either add the following to the require section of your `composer.json` file:
+Install **Dateline** with [Composer](https://getcomposer.org/). Either add the following to the require section of your `composer.json` file:
 
 `"sjaakp/yii2-dateline": "*"` 
 
