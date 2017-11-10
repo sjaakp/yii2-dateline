@@ -15,7 +15,7 @@ Install **Dateline** with [Composer](https://getcomposer.org/). Either add the f
 
 Or run:
 
-`$ php composer.phar require sjaakp/yii2-dateline "*"` 
+`composer require sjaakp/yii2-dateline "*"` 
 
 You can manually install **Dateline** by [downloading the source in ZIP-format](https://github.com/sjaakp/yii2-dateline/archive/master.zip).
 

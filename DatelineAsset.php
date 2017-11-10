@@ -1,7 +1,6 @@
 <?php
 /**
  * MIT licence
- * Version 1.0.0
  * Sjaak Priester, Amsterdam 05-07-2015.
  *
  * Widget for date related data in Yii 2.0 framework
@@ -14,13 +13,16 @@ use yii\web\AssetBundle;
 class DatelineAsset extends AssetBundle {
     public $depends = [
         'yii\jui\JuiAsset',
-        'madand\underscore\UnderscoreAsset',
     ];
 
     public $sourcePath = '@bower/dateline';
 
     public $css = [
         'css/jquery.dateline.css'
+    ];
+
+    public $js = [
+        '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'
     ];
 
     public $publishOptions = [
