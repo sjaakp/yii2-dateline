@@ -22,6 +22,57 @@ You can manually install **Dateline** by [downloading the source in ZIP-format](
 ## Using Dateline ##
 
 
+**Yii2-dateline** implements a widget of the class `Dateline`. It gets its data from an `ActiveDataProvider`, `ArrayDataProvider`, or other class derived from [`BaseDataProvider`](http://www.yiiframework.com/doc-2.0/yii-data-basedataprovider.html "Yii") Using it is not unlike using a [GridView](http://www.yiiframework.com/doc-2.0/yii-grid-gridview.html "Yii Framework"). For instance, in the Controller you might have something like:
+
+	<?php
+	// ...
+	public function actionFoo()	{
+		$dataProvider = new ActiveDataProvider([
+			'query' => InterestingEvent::find(),
+		    'pagination' => false
+		]);
+		
+		return $this->render('foo', [
+			'dataProvider' => $dataProvider
+		]);
+	}
+	// ...
+	?>
+
+An example of rendering a `Dateline` in the `View` is:
+
+	use sjaakp\dateline\Dateline;
+
+	/* ... */
+	
+	<?php $dl = Dateline::begin([
+	    'dataProvider' => $dataProvider,
+	    'attributes' => [
+	        'id' => 'id',
+	        'start' => 'date1',
+	        'text' => 'name'
+	    ],
+	    'options' => [
+			/* ... */
+	    ]
+	]);
+	
+	$dl->band([
+        'size' => '75%',
+	    'scale' => Dateline::WEEK,
+	    'interval'=> 90,
+	])
+	  ->band([
+        'size' => '25%',
+        'layout' => 'overview',
+        'scale' => Dateline::YEAR,
+        'interval'=> 80
+    ]);
+	
+	Dateline::end();
+	?>
+
+
 #### options ####
 
 Dateline has the following options:

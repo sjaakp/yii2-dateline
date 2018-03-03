@@ -1,6 +1,7 @@
 <?php
 /**
  * MIT licence
+ * Version 1.0.4
  * Sjaak Priester, Amsterdam 05-07-2015.
  *
  * Widget for date related data in Yii 2.0 framework
