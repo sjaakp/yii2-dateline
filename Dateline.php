@@ -100,8 +100,9 @@ class Dateline extends Widget {
         $jOpts = Json::encode($options);
 
         $id = $this->getId();
+        $var = 'q' . str_replace('-', '_', $id);
 
-        $js = "var {$id}=$('#{$id}').dateline($jOpts);";
+        $js = "var {$var}=$('#{$id}').dateline($jOpts);";
 
         $view->registerJs($js);
 

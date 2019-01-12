@@ -16,7 +16,8 @@ class DatelineAsset extends AssetBundle {
         'yii\jui\JuiAsset',
     ];
 
-    public $sourcePath = '@bower/dateline';
+//    public $sourcePath = '@bower/dateline';
+    public $baseUrl = '//unpkg.com/@sjaakp/dateline';
 
     public $css = [
         'css/jquery.dateline.css'
