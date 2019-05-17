@@ -113,6 +113,8 @@ A Band is defined by the Dateline method `band()`.
 
 ## Events ##
 
+*Note that we're not talking about PHP or JavaScript events here!*
+
 **Dateline** displays Events. These are Models or ActiveRecords characterized by a moment in time.
 
 The Dateline::attributes property holds the translation from Model attribute names to Dateline attribute names.
