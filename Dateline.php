@@ -1,8 +1,8 @@
 <?php
 /**
  * MIT licence
- * Version 1.0.1
- * Sjaak Priester, Amsterdam 05-07-2015 ... 01-08-2015.
+ * Version 2.0.0
+ * Sjaak Priester, Amsterdam 05-07-2015 ... 15-08-2019.
  *
  * Widget for date related data in Yii 2.0 framework
  */
@@ -13,7 +13,6 @@ use yii\base\Widget;
 use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 use yii\helpers\Json;
-
 
 class Dateline extends Widget {
 
@@ -30,17 +29,16 @@ class Dateline extends Widget {
     const CENTURY        = 9;
     const MILLENNIUM     = 10;
 
-
     /**
      * @var \yii\data\DataProviderInterface the data provider for the dateline. This property is required.
      */
     public $dataProvider;
 
     /**
-     * @var array key => value pairs of {dateline property name} => {model property name}. Required.
+     * @var array key => value pairs of {dateline property name} => {model property name}.
      * Mapping from dateline properties to model properties
      */
-    public $attributes;
+    public $attributes = [];
 
     /**
      * @var array
@@ -58,13 +56,22 @@ class Dateline extends Widget {
 
     protected $bands = [];
 
+    protected $props = [
+        'id',
+        'start',
+        'stop',
+        'post_start',
+        'pre_stop',
+        'class',
+        'text'
+    ];
 
+    /**
+     * @throws InvalidConfigException
+     */
     public function init()  {
         if (! $this->dataProvider) {
             throw new InvalidConfigException('The "dataProvider" property must be set.');
-        }
-        if (! $this->attributes) {
-            throw new InvalidConfigException('The "attributes" property must be set.');
         }
 
         if (isset($this->htmlOptions['id'])) {
@@ -73,7 +80,9 @@ class Dateline extends Widget {
         else $this->htmlOptions['id'] = $this->getId();
     }
 
-
+    /**
+     * @return string|void
+     */
     public function run()   {
         $view = $this->getView();
 
@@ -82,12 +91,15 @@ class Dateline extends Widget {
 
         $tData = array_map(function($model) {
             /** @var $model \yii\base\Model */
-            $modelAtts = array_filter($model->getAttributes(array_values($this->attributes)), function($att) {
-                return ! empty($att);
-            });
             $v = [];
-            foreach($this->attributes as $tname => $mname)  {
-                if (isset($modelAtts[$mname])) $v[$tname] = $modelAtts[$mname];
+
+            foreach($this->props as $prop)    {
+                if (isset($this->attributes[$prop]))    {
+                    $p = $this->attributes[$prop];
+                    if (is_callable($p))    { $v[$prop] = $p($model); }
+                    else $v[$prop] = $model->$p;
+                }
+                else $v[$prop] = $model->$prop;
             }
             return $v;
         }, $this->dataProvider->getModels());
@@ -100,18 +112,21 @@ class Dateline extends Widget {
         $jOpts = Json::encode($options);
 
         $id = $this->getId();
-        $var = 'q' . str_replace('-', '_', $id);
+        $var = 'q_' . str_replace('-', '_', $id);
 
-        $js = "var {$var}=$('#{$id}').dateline($jOpts);";
+        $js = "var {$var}=dateline('$id',$jOpts);";
 
         $view->registerJs($js);
 
         echo Html::tag('div', '', $this->htmlOptions);
     }
 
+    /**
+     * @param $options
+     * @return $this
+     */
     public function band($options)  {
         $this->bands[] = $options;
         return $this;
     }
-
 }

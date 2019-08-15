@@ -1,8 +1,8 @@
 <?php
 /**
  * MIT licence
- * Version 1.0.4
- * Sjaak Priester, Amsterdam 05-07-2015.
+ * Version 2.0.0
+ * Sjaak Priester, Amsterdam 05-07-2015... 15-08-2019.
  *
  * Widget for date related data in Yii 2.0 framework
  */
@@ -12,28 +12,14 @@ namespace sjaakp\dateline;
 use yii\web\AssetBundle;
 
 class DatelineAsset extends AssetBundle {
-    public $depends = [
-        'yii\jui\JuiAsset',
-    ];
 
-//    public $sourcePath = '@bower/dateline';
-    public $baseUrl = '//unpkg.com/@sjaakp/dateline';
+    public $baseUrl = '//unpkg.com/@sjaakp/dateline/dist';
 
     public $css = [
-        'css/jquery.dateline.css'
+        'dateline.css'
     ];
 
     public $js = [
-        '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'
+        'dateline.js'
     ];
-
-    public $publishOptions = [
-        'only' => [ 'css/*.css', 'js/*' ]
-    ];
-
-    public function init()    {
-        parent::init();
-
-        $this->js[] = YII_DEBUG ? 'js/jquery.dateline.js' : 'js/jquery.dateline.min.js';
-    }
 }
