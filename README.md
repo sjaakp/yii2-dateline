@@ -3,11 +3,19 @@ Yii2 Dateline
 
 #### Widget for date-related data in Yii 2.0 PHP Framework. ####
 
+[![Latest Stable Version](https://poser.pugx.org/sjaakp/yii2-dateline/v/stable)](https://packagist.org/packages/sjaakp/yii2-dateline)
+[![Total Downloads](https://poser.pugx.org/sjaakp/yii2-dateline/downloads)](https://packagist.org/packages/sjaakp/yii2-dateline)
+[![License](https://poser.pugx.org/sjaakp/yii2-dateline/license)](https://packagist.org/packages/sjaakp/yii2-dateline)
+
 Dateline widget renders my [JavaScript Dateline](https://github.com/sjaakp/dateline). 
 The event data for the dateline are provided by a Yii DataProvider 
 (any object implementing [yii\data\DataProviderInterface](http://www.yiiframework.com/doc-2.0/yii-data-dataproviderinterface.html)).
 
 A demonstration of Dateline widget is [here](https://sjaakpriester.nl/software/dateline2).
+
+See it in action at [Moordatlas.nl](https://moordatlas.nl/event/dateline) (Dutch).
+At *Weltliteratur* is a [nice example](https://vossanto.weltliteratur.net/timeline/) of the
+underlying JavaScript widget.
 
 ## Installation ##
 

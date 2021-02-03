@@ -42,7 +42,7 @@ class Dateline extends Widget {
 
     /**
      * @var array
-     * Client options for the Dateline jQuery widget.
+     * Client options for the Dateline widget.
      * @link https://github.com/sjaakp/dateline#cursor
      */
     public $options = [];
@@ -99,7 +99,8 @@ class Dateline extends Widget {
                     if (is_callable($p))    { $v[$prop] = $p($model); }
                     else $v[$prop] = $model->$p;
                 }
-                else $v[$prop] = $model->$prop;
+                else if ($model->hasAttribute($prop))
+                    $v[$prop] = $model->$prop;
             }
             return $v;
         }, $this->dataProvider->getModels());
