@@ -13,7 +13,8 @@ use yii\web\AssetBundle;
 
 class DatelineAsset extends AssetBundle {
 
-    public $baseUrl = '//unpkg.com/@sjaakp/dateline/dist';
+    public $sourcePath = '@npm/sjaakp--dateline/dist';
+//    public $baseUrl = '//unpkg.com/@sjaakp/dateline/dist';
 
     public $css = [
         'dateline.css'
